@@ -1,0 +1,74 @@
+<h2 mat-dialog-title *ngIf="enable_update">Update Client</h2>
+<h2 mat-dialog-title *ngIf="enable_add">Add New Client</h2>
+<mat-dialog-content>Hi {{data.name}}</mat-dialog-content>
+
+
+<div>
+  <form #newClient="ngForm" *ngIf="enable_add">
+
+    <mat-form-field class="form-group">
+      <input matInput type="text" class="form-control" name="username1" placeholder="*Username" [(ngModel)]="data.name" required>
+    </mat-form-field>
+    <br>
+
+    <mat-form-field class="form-group">
+      <input matInput type="text" class="form-control" name="email1" placeholder="*Email" [(ngModel)]="data.email" required>
+    </mat-form-field>
+    <br>
+    
+    <mat-form-field class="form-group">
+      <input matInput type="text" class="form-control" name="phone1" placeholder="*Phones" [(ngModel)]="data.phones" required>
+    </mat-form-field>
+    <br>
+  
+    <mat-form-field class="form-group">
+      <input matInput type="text" class="form-control" name="address1"  placeholder="*Address" [(ngModel)]="data.address">
+    </mat-form-field>
+    <br>
+
+    <mat-form-field class="form-group">
+      <input matInput type="text" class="form-control" name="addedon1" placeholder="*AddedOnDate" [(ngModel)]="data.addedOn" required>
+    </mat-form-field>
+    <br>
+  
+  </form>
+
+  <form #updateClient="ngForm" *ngIf="enable_update">
+
+    <mat-form-field class="form-group">
+      <input matInput type="text" class="form-control" name="username2" placeholder="*Username" [(ngModel)]="data.name" required>
+    </mat-form-field>
+    <br>
+
+    <mat-form-field class="form-group">
+      <input matInput type="text" class="form-control" name="email2" placeholder="*Email" [(ngModel)]="data.email" required>
+    </mat-form-field>
+    <br>
+    
+    <mat-form-field class="form-group">
+      <input matInput type="text" class="form-control" name="phone2" placeholder="*Phones" [(ngModel)]="data.phones" required>
+    </mat-form-field>
+    <br>
+  
+    <mat-form-field class="form-group">
+      <input matInput type="text" class="form-control" name="address2"  placeholder="*Address" [(ngModel)]="data.address">
+    </mat-form-field>
+    <br>
+
+    <mat-form-field class="form-group">
+      <input matInput type="text" class="form-control" name="addedon2" placeholder="*AddedOnDate" [(ngModel)]="data.addedOn" required>
+    </mat-form-field>
+    <br>
+  
+  </form>
+</div>
+
+
+
+<mat-dialog-actions>
+
+  <button class="dialog-button" mat-button (click)="addNewClient()" [mat-dialog-close]="data" *ngIf="enable_add">Add</button><br>
+  <button class="dialog-button" mat-button (click)="updateNewClient()" [mat-dialog-close]="data" *ngIf="enable_update">Update</button><br>
+  <button class="dialog-button" mat-button mat-dialog-close >Cancel</button><br>
+
+</mat-dialog-actions>

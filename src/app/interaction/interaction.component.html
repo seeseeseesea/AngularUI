@@ -1,0 +1,40 @@
+<app-top-bar></app-top-bar>
+<div class="center-table">
+
+  <div>
+    <button style="margin-top: 30px;" (click)="onCreateDialog()">Add New Interaction</button>
+  </div>
+  <br>
+  <input type="hidden" [(ngModel)]="interactionList">
+
+  <table class="table table-layout">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">id</th>
+        <th scope="col">ClientId</th>
+        <th scope="col">EmpId</th>
+        <th scope="col">IntType</th>
+        <th scope="col">IntDate</th>
+        <th scope="col">Remarks</th>
+        <th scope="col">Operation</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let interaction of interactionList; index as i">
+        <th scope="row">{{i + 1}}</th>
+        <td>{{interaction.id}}</td>
+        <td>{{interaction.clientId}}</td>
+        <td>{{interaction.empId}}</td>
+        <td>{{interaction.intType}}</td>
+        <td>{{interaction.intDate}}</td>
+        <td>{{interaction.remarks}}</td>
+        <td>
+          <button style="margin-right: 10px;" type="submit" (click)="UpdateInt(interaction)">Update</button>
+          <button style="margin-right: 10px;" type="submit" (click)="DeleteInt(interaction.id)">Delete</button>
+        </td>      
+      </tr>
+    </tbody>
+  </table>
+</div>

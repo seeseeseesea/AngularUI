@@ -1,0 +1,73 @@
+<h2 mat-dialog-title *ngIf="enable_update">Update Interaction</h2>
+<h2 mat-dialog-title *ngIf="enable_add">Add New Interaction</h2>
+<mat-dialog-content>Hi {{data.name}}</mat-dialog-content>
+
+<div>
+  <form #newInt="ngForm" *ngIf="enable_add">
+
+    <mat-form-field class="form-group">
+      <input matInput type="text" class="form-control" name="clientId1" placeholder="*ClientId" [(ngModel)]="data.clientId" required>
+    </mat-form-field>
+    <br>
+
+    <mat-form-field class="form-group">
+      <input matInput type="text" class="form-control" name="empId1" placeholder="*EmployeeId" [(ngModel)]="data.empId" required>
+    </mat-form-field>
+    <br>
+    
+    <mat-form-field class="form-group">
+      <input matInput type="text" class="form-control" name="intType1" placeholder="*Interaction Type" [(ngModel)]="data.intType" required>
+    </mat-form-field>
+    <br>
+  
+    <mat-form-field class="form-group">
+      <input matInput type="text" class="form-control" name="intDate1"  placeholder="*Interaction Date" [(ngModel)]="data.intDate">
+    </mat-form-field>
+    <br>
+
+    <mat-form-field class="form-group">
+      <input matInput type="text" class="form-control" name="remark1" placeholder="*Remarks" [(ngModel)]="data.remarks" required>
+    </mat-form-field>
+    <br>
+  
+  </form>
+
+  <form #updateInt="ngForm" *ngIf="enable_update">
+
+    <mat-form-field class="form-group">
+      <input matInput type="text" class="form-control" name="clientId2" placeholder="*ClientId" [(ngModel)]="data.clientId" required>
+    </mat-form-field>
+    <br>
+
+    <mat-form-field class="form-group">
+      <input matInput type="text" class="form-control" name="empId2" placeholder="*EmployeeId" [(ngModel)]="data.empId" required>
+    </mat-form-field>
+    <br>
+    
+    <mat-form-field class="form-group">
+      <input matInput type="text" class="form-control" name="intType2" placeholder="*Interaction Type" [(ngModel)]="data.intType" required>
+    </mat-form-field>
+    <br>
+  
+    <mat-form-field class="form-group">
+      <input matInput type="text" class="form-control" name="intDate2"  placeholder="*Interaction Date" [(ngModel)]="data.intDate">
+    </mat-form-field>
+    <br>
+
+    <mat-form-field class="form-group">
+      <input matInput type="text" class="form-control" name="remark2" placeholder="*Remarks" [(ngModel)]="data.remarks" required>
+    </mat-form-field>
+    <br>
+  
+  </form>
+</div>
+
+
+
+<mat-dialog-actions>
+
+  <button class="dialog-button" mat-button (click)="addNewInt()" [mat-dialog-close]="data" *ngIf="enable_add">Add</button><br>
+  <button class="dialog-button" mat-button (click)="updateNewInt()" [mat-dialog-close]="data" *ngIf="enable_update">Update</button><br>
+  <button class="dialog-button" mat-button mat-dialog-close >Cancel</button><br>
+
+</mat-dialog-actions>

@@ -1,0 +1,37 @@
+<app-top-bar></app-top-bar>
+<div class="center-table">
+  <div>
+    <button style="margin-top: 10px;" (click)="onCreateDialog()">Add New Client</button>
+  </div>
+  <br>
+  <table class="table table-layout">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">id</th>
+        <th scope="col">Name</th>
+        <th scope="col">Email</th>
+        <th scope="col">Phones</th>
+        <th scope="col">Address</th>
+        <th scope="col">AddedOn</th>
+        <th scope="col">operation</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let client of ClientList; index as i">
+        <th scope="row">{{i + 1}}</th>
+        <td>{{client.id}}</td>
+        <td class="clickable" (click)="RouteToInteractions(client)">{{client.name}}</td>
+        <td>{{client.email}}</td>
+        <td>{{client.phones}}</td>
+        <td>{{client.address}}</td>
+        <td>{{client.addedOn}}</td>
+        <td>
+          <button style="margin-right: 10px;" type="submit" (click)="UpdateClient(client)">Update</button>
+          <button style="margin-right: 10px;" type="submit" (click)="DeleteClient(client.id)">Delete</button>
+        </td>      
+      </tr>
+    </tbody>
+  </table>
+</div>
+

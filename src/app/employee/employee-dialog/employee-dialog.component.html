@@ -1,0 +1,53 @@
+<h2 mat-dialog-title *ngIf="enable_update">Update Employee</h2>
+<h2 mat-dialog-title *ngIf="enable_add">Add New Employee</h2>
+<mat-dialog-content>Hi {{data.name}}</mat-dialog-content>
+
+<div>
+  <form #newEmp="ngForm" *ngIf="enable_add">
+
+    <mat-form-field class="form-group">
+      <input matInput type="text" class="form-control" name="username1" placeholder="*Username" [(ngModel)]="data.name" required>
+    </mat-form-field>
+    <br>
+    
+    <mat-form-field class="form-group">
+      <input matInput type="text" class="form-control" name="password1" placeholder="*Password" [(ngModel)]="data.password" required>
+    </mat-form-field>
+    <br>
+  
+    <mat-form-field class="form-group">
+      <input matInput type="text" class="form-control" name="designation1"  placeholder="*Designation" [(ngModel)]="data.designation">
+    </mat-form-field>
+    <br>
+  
+  </form>
+
+  <form #updateEmp="ngForm" *ngIf="enable_update">
+
+    <mat-form-field class="form-group">
+      <input matInput type="text" class="form-control" name="username2" placeholder="*Username" [(ngModel)]="data.name" required>
+    </mat-form-field>
+    <br>
+    
+    <mat-form-field class="form-group">
+      <input matInput type="text" class="form-control" name="password2" placeholder="*Password" [(ngModel)]="data.password" required>
+    </mat-form-field>
+    <br>
+  
+    <mat-form-field class="form-group">
+      <input matInput type="text" class="form-control" name="designation2"  placeholder="*Designation" [(ngModel)]="data.designation">
+    </mat-form-field>
+    <br>
+  
+  </form>
+</div>
+
+
+
+<mat-dialog-actions>
+
+  <button class="dialog-button" mat-button (click)="addNewEmployee()" [mat-dialog-close]="data" *ngIf="enable_add">Add</button><br>
+  <button class="dialog-button" mat-button (click)="updateNewEmployee()" [mat-dialog-close]="data" *ngIf="enable_update">Update</button><br>
+  <button class="dialog-button" mat-button mat-dialog-close >Cancel</button><br>
+
+</mat-dialog-actions>
